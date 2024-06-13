@@ -25,7 +25,7 @@ def main():
     parser.add_argument('--N', default=2, type=int, help='N way')
     parser.add_argument('--K', default=2, type=int, help='K shot')
     parser.add_argument('--Q', default=3, type=int, help='Num of query per class')
-    parser.add_argument('--batch_size', default=8, type=int, help='batch size')
+    parser.add_argument('--batch_size', default=16, type=int, help='batch size')
     parser.add_argument('--train_iter', default=1000, type=int, help='num of iters in training')
     parser.add_argument('--val_iter', default=200, type=int, help='num of iters in validation')
     parser.add_argument('--test_iter', default=600, type=int, help='num of iters in testing')
