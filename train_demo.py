@@ -76,7 +76,8 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(pretrain_ckpt)
 
     print('loading data...')
-    if not opt.use_sampled_data:
+    print(opt.use_sampled_data)
+    if opt.use_sampled_data:
         print('training with txt')
         opt.train = f'data/{opt.mode}/train.txt'
         opt.test = f'data/{opt.mode}/test.txt'
