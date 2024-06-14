@@ -41,7 +41,7 @@ def main():
     parser.add_argument('--ckpt_name', type=str, default='', help='checkpoint name.')
     parser.add_argument('--seed', type=int, default=0, help='random seed')
     parser.add_argument('--ignore_index', type=int, default=-1, help='label index to ignore when calculating loss and metrics')
-    parser.add_argument('--use_sampled_data', action='store_true', help='use released sampled data, the data should be stored at "data/episode-data/"')
+    parser.add_argument('--use_sampled_data', action='store_false', help='use released sampled data, the data should be stored at "data/episode-data/"')
 
     # only for bert / roberta
     parser.add_argument('--pretrain_ckpt', default=None, help='bert / roberta pre-trained checkpoint')
@@ -77,7 +77,7 @@ def main():
 
     print('loading data...')
     print(opt.use_sampled_data)
-    if opt.use_sampled_data:
+    if not opt.use_sampled_data:
         print('training with txt')
         opt.train = f'data/{opt.mode}/train.txt'
         opt.test = f'data/{opt.mode}/test.txt'
