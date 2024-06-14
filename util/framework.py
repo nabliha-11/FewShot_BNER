@@ -12,7 +12,6 @@ from torch.nn import functional as F
 # from pytorch_pretrained_bert import BertAdam
 from transformers import AdamW, get_linear_schedule_with_warmup
 from torch.nn.parallel import DistributedDataParallel as DDP
-
 from .viterbi import ViterbiDecoder
 
 
@@ -389,6 +388,7 @@ class FewShotNERFramework:
         pred_cnt = 0
         label_cnt = 0
         correct_cnt = 0
+        epsilon = 1e-6
 
         it = 0
         while it + 1 < train_iter:
