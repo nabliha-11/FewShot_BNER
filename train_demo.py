@@ -77,9 +77,10 @@ def main():
 
     print('loading data...')
     if not opt.use_sampled_data:
-        opt.train = f'data/final_train.jsonl'
-        opt.test = f'data/final_test.jsonl'
-        opt.dev = f'data/final_val.jsonl'
+        print('training with txt')
+        opt.train = f'data/{opt.mode}/train.txt'
+        opt.test = f'data/{opt.mode}/test.txt'
+        opt.dev = f'data/{opt.mode}/dev.txt'
         if not (os.path.exists(opt.train) and os.path.exists(opt.dev) and os.path.exists(opt.test)):
             os.system(f'bash data/download.sh {opt.mode}')
     else:
